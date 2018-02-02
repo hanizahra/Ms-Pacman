@@ -9,7 +9,8 @@
 (Your wireframes go here. Preferably two or more)<br><br>
 
 <h2>Initial thoughts on game structure</h2> <br><br>
-<p>I think the biggest challenges will entail programming the ghosts' behavior, in terms of speed and agression (whether they chase Ms. Pac-Man or just move around randomly).</p><br><br> 
+<p>I want the user to see a basic landing page with character images, brief instruction and game start option.</p>
+<p>I think the biggest challenges will entail programming the ghosts' behavior, in terms of speed and agression (whether they chase Ms. Pac-Man or just move around randomly) and keeping all movements within the constructs of the maze.</p><br><br> 
 
 <h2>Phases of Completion</h2> <br><br>
 <ol>
