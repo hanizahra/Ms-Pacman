@@ -14,7 +14,7 @@
 <h2>Phases of Completion</h2> <br><br>
 <ol>
 <li>Create basic layouts for the three html pages and simple shapes to represent characters using simple CSS</li>
-<li>Program logic for actual game play until it works (i.e. Ms. Pac-Man can move through maze, ghosts movement patterns and points of contact between characters, score counter, game start/reset)</li>>
+<li>Program logic for actual game play until it works (i.e. Ms. Pac-Man can move through maze, ghosts movement patterns and points of contact between characters, score counter, game start/reset)</li>
 <li>Make CSS look pretty and add any bells and whistles that make the flow of the game, from page to page, look consistent</li>
 </ol><br><br>
 
