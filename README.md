@@ -12,7 +12,12 @@
 <p>I think the biggest challenges will entail programming the ghosts' behavior, in terms of speed and agression (whether they chase Ms. Pac-Man or just move around randomly).</p><br><br> 
 
 <h2>Phases of Completion</h2> <br><br>
-<p>(The steps or phases you expect to go through, and the tasks that you'll need to accomplish to reach each step. These should resemble the acceptance criteria we were working through earlier.)</p><br><br>
+<ol>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol><br><br>
 
 <h2>Links and Resources</h2> <br><br>
 https://www.youtube.com/watch?v=GOJBoGbRNQA <br>
