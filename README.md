@@ -17,5 +17,5 @@ What is [Ms. Pac-Man]? <br><br>
 
 ***Links and Resources*** <br><br>
 https://www.youtube.com/watch?v=GOJBoGbRNQA <br>
-http://www.masswerk.at/JavaPac/pacman-howto.html
+http://www.masswerk.at/JavaPac/pacman-howto.html <br>
 https://codepen.io/hellokatili/pen/xwKRmo
