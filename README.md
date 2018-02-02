@@ -1,5 +1,3 @@
-# ms-pacman
-
 ***Hani Zahra / 2/2/18***
 
 <h1>Ms. Pac-Man</h1> <br><br>
