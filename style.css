@@ -1,3 +1,50 @@
 body {
-	
+	/*height: 100px;*/
+	/*width: 200px;*/
+}
+
+/*#circle {
+	height: 40px;
+	position: absolute;
+	left:0; 
+	top:0;
+}*/
+
+.row {
+	background-color: black;
+	/*clear: both;*/
+	/*content: "";*/
+	/*float: left;*/
+}
+
+.column {
+	background-color: black;
+	width: 40px;
+	height:40px;
+	/*float: right;*/
+	/*padding: 10px;*/
+}
+
+.x {
+	background-color: black;
+}
+
+.o {
+	background-color: blue;
+}
+
+.a {
+	background-color: black;
+}
+
+.b {
+	background-color: red;
+}
+
+div{
+	display: inline-block;
+}
+
+#grid {
+	margin: 20px;
 }
