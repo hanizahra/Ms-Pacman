@@ -16,6 +16,6 @@ What is [Ms. Pac-Man]? <br><br>
 <p>(The steps or phases you expect to go through, and the tasks that you'll need to accomplish to reach each step. These should resemble the acceptance criteria we were working through earlier.)</p><br><br>
 
 ***Links and Resources*** <br><br>
-https://www.youtube.com/watch?v=GOJBoGbRNQA
+https://www.youtube.com/watch?v=GOJBoGbRNQA <br>
 http://www.masswerk.at/JavaPac/pacman-howto.html
 https://codepen.io/hellokatili/pen/xwKRmo
