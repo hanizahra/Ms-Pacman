@@ -1,6 +1,6 @@
 # ms-pacman
 
-*** Hani Zahra / 2/2/18 ***
+***Hani Zahra / 2/2/18***
 
 [Ms. Pac-Man] Proposal
 What is [Ms. Pac-Man]? <br><br>
