@@ -1,4 +1,4 @@
-***Hani Zahra / 2/2/18***
+***Hani Zahra - 2/2/18***
 
 <h1>Ms. Pac-Man Proposal</h1> <br><br>
 
