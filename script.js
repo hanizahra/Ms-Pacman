@@ -44,7 +44,7 @@ let msPacMan = {
 }
 
 function drawMap() {
-	// document.getElementById('board').innerHTML = "";
+	document.getElementById('board').innerHTML = "";
 	for (let y = 0; y < map.length; y++) {
 		for (let x = 0; x < map[y].length; x++) {
 			if (map[y][x] === 1){
@@ -52,7 +52,7 @@ function drawMap() {
 			} else if (map[y][x] === 0) {
 				document.getElementById('board').innerHTML += "<div class = 'white-circle'></div>";
 			} else if (map[y][x] === 2) {
-				document.getElementById('board').innerHTML += "<div id = 'empty-square'></div>";
+				document.getElementById('board').innerHTML += "<div class = 'empty-square'></div>";
 			} else if (map[y][x] === 3) {
 				document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
 			}
@@ -61,48 +61,36 @@ function drawMap() {
 	}
 }
 
+document.onkeydown = function(e){
+	switch(e.keyCode){
+		case 37: //left
+			map[msPacMan.y][msPacMan.x] = 2
+			msPacMan.x--
+			map[msPacMan.y][msPacMan.x] = 3;
+			drawMap();
+			break;
+		case 38: //up
+			map[msPacMan.y][msPacMan.x] = 2
+			msPacMan.y--
+			map[msPacMan.y][msPacMan.x] = 3;
+			drawMap();
+			
+			break;
+		case 39: //right
+			map[msPacMan.y][msPacMan.x] = 2
+			msPacMan.x++
+			map[msPacMan.y][msPacMan.x] = 3;
+			drawMap();
+			break;
+		case 40: //down
+			map[msPacMan.y][msPacMan.x] = 2
+			msPacMan.y++
+			map[msPacMan.y][msPacMan.x] = 3;
+			drawMap();
+			break;						
+	}
+}
+
+
+
 drawMap();
-
-
-
-let pacMan= null;
-	function init(){
-		pacMan=document.getElementById("ms-pac-man");				
-		pacMan.style.position='relative';
-		pacMan.style.left='0px';
-		pacMan.style.top='0px';
-	}
-	function movePacMan(evnt){				
-		let key_code=evnt.which||evnt.keyCode;
-		switch(key_code){
-			case 37:
-				moveLeft();
-				break;
-			case 38:
-				moveUp();
-				break;
-			case 39:
-				moveRight();
-				break;
-			case 40:
-				moveDown();
-				break;						
-		}
-	}
-	function moveLeft(){
-		pacMan.style.left=parseInt(pacMan.style.left)-10 +'px';
-
-	}
-	function moveUp(){
-		pacMan.style.top=parseInt(pacMan.style.top)-10 +'px';
-	}
-	function moveRight(){
-		// map[msPacMan.y][msPacMan.x] = 2;
-		// msPacMan.x = msPacMan.x +1;
-		// map[msPacMan.y][msPacMan.x] = 3;
-		// drawMap();
-	}
-	function moveDown(){
-		pacMan.style.top=parseInt(pacMan.style.top)+10 +'px';
-	}
-	window.onload=init;
