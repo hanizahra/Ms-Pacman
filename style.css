@@ -22,16 +22,38 @@ body {
 	border: 10px black solid;
 	background-color: white;
 	border-radius: 50%;
-	margin: 0px 0px 1.5px 0px;
+	margin: 0px 0px 0px 0px;
 }
+
+/*.white-circle {  //smaller circles (where I want them but grid is off)
+	height: 12px;
+	width: 12px;
+	border: 5px black solid;
+	background-color: white;
+	border-radius: 50%;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 13px 11px 10px;
+}*/
 
 .empty-square {
 	height: 50px;
 	width: 50px;
-	background-color: yellow;
+	background-color: black;
 }
 
-.row {
+/*div{
+	display: inline-block;
+	margin: -1px;
+	line-height: 15px;
+}*/
+
+div{
+	display: inline-block;
+	margin: -2.5px;
+	line-height: 15px;
+}
+
+/*.row {
 	background-color: grey;
 	width: 900px;
 }
@@ -40,9 +62,9 @@ body {
 	background-color: grey;
 	width: 25px;
 	height: 25px;
-}
+}*/
 
-.x {
+/*.x {
 	background-color: black;
 }
 
@@ -56,19 +78,13 @@ body {
 
 .b {
 	background-color: red;
-}
+}*/
 
-div{
-	display: inline-block;
-	margin: -2.5px;
-	line-height: 15px;
-}
-
-#grid {
+/*#grid {
 	margin: 20px;
 }
 
 #image1 {
 	height: 18px;
 	width: 18px;
-}
+}*/
