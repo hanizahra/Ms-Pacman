@@ -1,3 +1,9 @@
+let msPacMan = {
+	x: 0,
+	y: 14
+}
+
+
 let map =[
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 [1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
@@ -32,16 +38,6 @@ let map =[
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ]
 
-// 0 = white-circle
-// 1 = wall
-// 2 = empty-square
-// 3 = ms-pac-man
-//
-
-let msPacMan = {
-	x: 0,
-	y: 14
-}
 
 function drawMap() {
 	document.getElementById('board').innerHTML = "";
@@ -61,33 +57,48 @@ function drawMap() {
 	}
 }
 
-document.onkeydown = function(e){
-	switch(e.keyCode){
+document.onkeydown = function(evnt){
+	switch(evnt.keyCode){
 		case 37: //left
-			map[msPacMan.y][msPacMan.x] = 2
-			msPacMan.x--
-			map[msPacMan.y][msPacMan.x] = 3;
-			drawMap();
-			break;
-		case 38: //up
-			map[msPacMan.y][msPacMan.x] = 2
-			msPacMan.y--
-			map[msPacMan.y][msPacMan.x] = 3;
-			drawMap();
+			if (map[msPacMan.y][msPacMan.x -1] !== 1){
+				map[msPacMan.y][msPacMan.x] = 2
+				msPacMan.x--
+				map[msPacMan.y][msPacMan.x] = 3;
+				drawMap();
+			} else {
+				break;
+			}
 			
-			break;
+		case 38: //up
+			if (map[msPacMan.y-1][msPacMan.x] !== 1){
+				map[msPacMan.y][msPacMan.x] = 2
+				msPacMan.y--
+				map[msPacMan.y][msPacMan.x] = 3;
+				drawMap();
+			} else {
+				break;
+			}
+			
 		case 39: //right
-			map[msPacMan.y][msPacMan.x] = 2
-			msPacMan.x++
-			map[msPacMan.y][msPacMan.x] = 3;
-			drawMap();
-			break;
+			if (map[msPacMan.y][msPacMan.x+1] !== 1){
+				map[msPacMan.y][msPacMan.x] = 2
+				msPacMan.x++
+				map[msPacMan.y][msPacMan.x] = 3;
+				drawMap();
+			} else {
+				break;
+			}
+			
 		case 40: //down
-			map[msPacMan.y][msPacMan.x] = 2
-			msPacMan.y++
-			map[msPacMan.y][msPacMan.x] = 3;
-			drawMap();
-			break;						
+			if (map[msPacMan.y+1][msPacMan.x] !== 1){
+				map[msPacMan.y][msPacMan.x] = 2
+				msPacMan.y++
+				map[msPacMan.y][msPacMan.x] = 3;
+				drawMap();
+			} else {
+				break;	
+			}
+								
 	}
 }
 
