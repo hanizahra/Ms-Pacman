@@ -1,7 +1,18 @@
-body {
+@font-face {
+	font-family: "PacFont";
+	src: url(fonts/PacFont.ttf);
+}
+
+
+#body-1 {
 	text-align: center;
 	background-color: black;
 	margin-top: 150px;
+}
+
+#game-title {
+	font-family: "PacFont";
+	color: yellow;
 }
 
 #ms-pac-man {
@@ -16,6 +27,11 @@ body {
 	width: 50px;
 	background-color: blue;
 }
+
+/*.wall-corner {
+	background-color: white !important;
+	border-radius: 50%;
+}*/
 
 .white-circle {
 	height: 25px;
@@ -59,6 +75,45 @@ div{
 	font-size: 60px;
 	background-color: white;
 	text-align: center;
+}
+
+
+#body-2 {
+	background-color: black;
+	text-align: center;
+	margin: 0 auto;	
+}
+
+h1 {
+	color: white;
+	font-size: 150px;
+	margin: 90px 0px 0px 0px;
+}
+
+#play-again {
+	color: white;
+	font-size: 50px;
+	margin: 0px 0px 0px 0px;
+}
+
+table {
+	background-color: yellow;
+	height: 700px;
+	width: 900px;
+	margin-top: 50px;
+}
+
+th {
+	background-color: pink;
+}
+
+tr {
+	background-color: green;
+}
+
+td {
+	background-color: grey;
+	width: 100px;
 }
 
 /*.row {

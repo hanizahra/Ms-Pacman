@@ -57,6 +57,25 @@ function drawMap() {
 	}
 }
 
+// function styleMap() {
+// 	document.getElementById('board').innerHTML = "";
+// 	for (let y = 0; y < map.length; y++) {
+// 		for (let x = 0; x < map[y].length; x++) {
+// 			if (map[y][x] === map[0][0]) {
+// 				document.getElementById('board').innerHTML += "<div class = 'wall wall-corner'></div>";
+// 			} 
+// 			if (map[y][x] === map[0][27]) {
+// 				document.getElementById('board').innerHTML += "<div class = 'wall wall-corner'></div>";
+// 			} 
+// 			if (map[y][x] === map[30][0]) {
+// 				document.getElementById('board').innerHTML += "<div class = 'wall wall-corner'></div>";
+// 			} 
+// 			if (map[y][x] === map[30][27]) {
+// 				document.getElementById('board').innerHTML += "<div class = 'wall wall-corner'></div>";
+// 			}
+// 		}
+// 	}
+// }
 
 document.onkeydown = function(evnt){
 	switch(evnt.keyCode){
@@ -126,7 +145,25 @@ function incrementScore () {
 	console.log("this function is running")
 	score += 5;
 	scoreDisplay.innerText = `Score: ${score}`;
+	userWon ()
 }
 
+function userWon () {
+	if (score >= 15) {  //1590
+		window.location.href = "index3.html";
+		updateScoreBoard();
+	} 
+}
+
+function updateScoreBoard() {
+	let topScore = document.getElementById('1-score').innerText;
+	let topName = document.getElementById('1-name').innerText;
+	if (score > topScore) {
+		topScore.innerText = "score";
+		// topName = NAME INPUT?
+	}
+}
+
+// document.getElementById('board').map[0]
 
 
