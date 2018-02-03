@@ -1,6 +1,7 @@
 body {
 	text-align: center;
 	background-color: black;
+	margin-top: 150px;
 }
 
 #ms-pac-man {
@@ -51,6 +52,13 @@ div{
 	display: inline-block;
 	margin: -2.5px;
 	line-height: 15px;
+}
+
+#score {
+	color: black;
+	font-size: 60px;
+	background-color: white;
+	text-align: center;
 }
 
 /*.row {

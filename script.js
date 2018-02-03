@@ -57,6 +57,7 @@ function drawMap() {
 	}
 }
 
+
 document.onkeydown = function(evnt){
 	switch(evnt.keyCode){
 		case 37: //left
@@ -65,6 +66,9 @@ document.onkeydown = function(evnt){
 				msPacMan.x--
 				map[msPacMan.y][msPacMan.x] = 3;
 				drawMap();
+				if (map[msPacMan.y][msPacMan.x - 1] === 0){
+					incrementScore ();
+				};
 			} else {
 				break;
 			}
@@ -75,6 +79,9 @@ document.onkeydown = function(evnt){
 				msPacMan.y--
 				map[msPacMan.y][msPacMan.x] = 3;
 				drawMap();
+				if (map[msPacMan.y-1][msPacMan.x] === 0){
+					incrementScore ();
+				};
 			} else {
 				break;
 			}
@@ -85,6 +92,9 @@ document.onkeydown = function(evnt){
 				msPacMan.x++
 				map[msPacMan.y][msPacMan.x] = 3;
 				drawMap();
+				if (map[msPacMan.y][msPacMan.x + 1] === 0){
+					incrementScore ();
+				};
 			} else {
 				break;
 			}
@@ -95,6 +105,9 @@ document.onkeydown = function(evnt){
 				msPacMan.y++
 				map[msPacMan.y][msPacMan.x] = 3;
 				drawMap();
+				if (map[msPacMan.y][msPacMan.y + 1] === 0){
+					incrementScore ();
+				};
 			} else {
 				break;	
 			}
@@ -103,7 +116,17 @@ document.onkeydown = function(evnt){
 }
 
 
-
-
-
 drawMap();
+
+let score = 0;
+const circlePoints = document.querySelector('.white-circle');
+const scoreDisplay = document.querySelector('#score');
+
+function incrementScore () {
+	console.log("this function is running")
+	score += 5;
+	scoreDisplay.innerText = `Score: ${score}`;
+}
+
+
+
