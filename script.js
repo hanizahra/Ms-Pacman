@@ -149,18 +149,85 @@ function incrementScore () {
 }
 
 function userWon () {
-	if (score >= 15) {  //1590
-		window.location.href = "index3.html";
+	if (score >= 10) {  //1590
+		// window.location.href = "index3.html";
+		document.getElementById('board').setAttribute('id', 'board-end-game');
+		document.getElementById('score-board').setAttribute('id', 'score-board-appear');
 		updateScoreBoard();
 	} 
 }
 
 function updateScoreBoard() {
 	let topScore = document.getElementById('1-score').innerText;
-	let topName = document.getElementById('1-name').innerText;
+	let secondScore = document.getElementById('2-score').innerText;
+	let thirdScore = document.getElementById('3-score').innerText;
+	let fourthScore = document.getElementById('4-score').innerText;
+	let fifthScore = document.getElementById('5-score').innerText;
+	let sixthScore = document.getElementById('6-score').innerText;
+	let seventhScore = document.getElementById('7-score').innerText;
+	let eightScore = document.getElementById('8-score').innerText;
+	let ninthScore = document.getElementById('9-score').innerText;
+	let tenthScore = document.getElementById('10-score').innerText;
+	let topName = document.getElementById('1-name');
+	let secondName = document.getElementById('2-name');
+	let thirdName = document.getElementById('3-name');
+	let fourthName = document.getElementById('4-name');
+	let fifthName = document.getElementById('5-name');
+	let sixthName = document.getElementById('6-name');
+	let seventhName = document.getElementById('7-name');
+	let eigthName = document.getElementById('8-name');
+	let ninthName = document.getElementById('9-name');
+	let tenthName = document.getElementById('10-name');
 	if (score > topScore) {
-		topScore.innerText = "score";
+		document.getElementById('1-score').innerText = score
 		// topName = NAME INPUT?
+		let userName = prompt("You have the top score! Enter your name to the scoreboard!");
+		document.getElementById('1-name').innerText = userName;
+	} else if (score > secondScore) {
+		document.getElementById('2-score').innerText = score
+		// topName = NAME INPUT?
+		let userName = prompt("You got the second top score! Enter your name to the scoreboard!");
+		document.getElementById('2-name').innerText = userName;
+	} else if (score > thirdScore) {
+		document.getElementById('3-score').innerText = score
+		// topName = NAME INPUT?
+		let userName = prompt("You got the second third top score! Enter your name to the scoreboard!");
+		document.getElementById('3-name').innerText = userName;
+	} else if (score > fifthScore) {
+		document.getElementById('4-score').innerText = score
+		// topName = NAME INPUT?
+		let userName = prompt("Enter your name to the scoreboard!");
+		document.getElementById('4-name').innerText = userName;
+	} else if (score > sixthScore) {
+		document.getElementById('5-score').innerText = score
+		// topName = NAME INPUT?
+		let userName = prompt("Enter your name to the scoreboard!");
+		document.getElementById('5-name').innerText = userName;
+	} else if (score > seventhScore) {
+		document.getElementById('6-score').innerText = score
+		// topName = NAME INPUT?
+		let userName = prompt("Enter your name to the scoreboard!");
+		document.getElementById('6-name').innerText = userName;
+	} else if (score > eightScore) {
+		document.getElementById('7-score').innerText = score
+		// topName = NAME INPUT?
+		let userName = prompt("Enter your name to the scoreboard!");
+		document.getElementById('7-name').innerText = userName;
+	} else if (score > ninthScore) {
+		document.getElementById('8-score').innerText = score
+		// topName = NAME INPUT?
+		let userName = prompt("Enter your name to the scoreboard!");
+		document.getElementById('8-name').innerText = userName;
+	} else if (score > tenthScore) {
+		document.getElementById('9-score').innerText = score
+		// topName = NAME INPUT?
+		let userName = prompt("Enter your name to the scoreboard!");
+		document.getElementById('9-name').innerText = userName;
+	} else if (score > topScore) {
+		document.getElementById('10-score').innerText = score
+		// topName = NAME INPUT?
+		let userName = prompt("Enter your name to the scoreboard!");
+		document.getElementById('10-name').innerText = userName;
 	}
 }
 

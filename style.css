@@ -10,6 +10,16 @@
 	margin-top: 150px;
 }
 
+#board {
+	z-index: 10;
+}
+
+#board-end-game {
+	position: absolute;
+	z-index: 1;
+	opacity: 0;
+}
+
 #game-title {
 	font-family: "PacFont";
 	color: yellow;
@@ -77,6 +87,20 @@ div{
 	text-align: center;
 }
 
+#score-board {
+	position: absolute;
+	z-index: 0;
+	opacity: 0;
+	margin: 0px 0px 0px 0px;
+}
+
+#score-board-appear{
+	position: relative;
+	z-index: 10;
+	opacity: 1;
+	margin: 0px 0px 0px 0px;
+}
+
 
 #body-2 {
 	background-color: black;
@@ -86,8 +110,8 @@ div{
 
 h1 {
 	color: white;
-	font-size: 150px;
-	margin: 90px 0px 0px 0px;
+	font-size: 100px;
+	margin: 45px 0px 0px 0px;
 }
 
 #play-again {
