@@ -19,8 +19,8 @@ let map =[
 [1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1],
 [1,1,1,1,1,1,0,1,1,0,1,1,1,0,0,1,1,1,0,1,1,0,1,1,1,1,1,1],
 [1,1,1,1,1,1,0,1,1,0,1,0,0,0,0,0,0,1,0,1,1,0,1,1,1,1,1,1],
-[3,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
-[1,1,1,1,1,1,0,1,1,0,1,0,0,0,0,0,0,1,0,1,1,0,1,1,1,1,1,1],
+[3,0,0,0,0,0,0,0,0,0,1,0,0,4,5,0,0,1,0,0,0,0,0,0,0,0,0,1],
+[1,1,1,1,1,1,0,1,1,0,1,0,0,6,7,0,0,1,0,1,1,0,1,1,1,1,1,1],
 [1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1],
 [1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1],
 [1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1],
@@ -51,11 +51,41 @@ function drawMap() {
 				document.getElementById('board').innerHTML += "<div class = 'empty-square'></div>";
 			} else if (map[y][x] === 3) {
 				document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
+			} else if (map[y][x] === 4) {
+				let holder = document.createElement('div');
+				holder.classList.add('ghosts')
+				holder.classList.add('g1');
+				// holder.setAttribute('style', `background: url("images/ghost-pink.png")`)
+				console.log(holder);
+				// document.getElementById('board').innerHTML += holder;
+				document.getElementById('board').appendChild(holder);
+
+				// document.getElementById('board').innerHTML += "<div class = 'ghosts'>"+img1.src+"</div>";
+			} else if (map[y][x] === 5) {
+				let holder = document.createElement('div');
+				holder.classList.add('ghosts')
+				holder.classList.add('g2');
+				document.getElementById('board').appendChild(holder);
+				// document.getElementById('board').innerHTML += "<div class = 'white-circle'></div>";
+			} else if (map[y][x] === 6) {
+				let holder = document.createElement('div');
+				holder.classList.add('ghosts')
+				holder.classList.add('g3');
+				document.getElementById('board').appendChild(holder);
+				// document.getElementById('board').innerHTML += "<div class = 'white-circle'></div>";
+			} else if (map[y][x] === 7) {
+				let holder = document.createElement('div');
+				holder.classList.add('ghosts')
+				holder.classList.add('g4');
+				document.getElementById('board').appendChild(holder);
+				// document.getElementById('board').innerHTML += "<div class = 'white-circle'></div>";
 			}
 		}
 		document.getElementById('board').innerHTML += "<br>";
 	}
 }
+
+
 
 // function styleMap() {
 // 	document.getElementById('board').innerHTML = "";
@@ -76,6 +106,8 @@ function drawMap() {
 // 		}
 // 	}
 // }
+
+
 
 document.onkeydown = function(evnt){
 	switch(evnt.keyCode){
@@ -149,7 +181,7 @@ function incrementScore () {
 }
 
 function userWon () {
-	if (score >= 10) {  //1590
+	if (score >= 30) {  //1590
 		// window.location.href = "index3.html";
 		document.getElementById('board').setAttribute('id', 'board-end-game');
 		document.getElementById('score-board').setAttribute('id', 'score-board-appear');

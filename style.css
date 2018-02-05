@@ -32,6 +32,37 @@
 	border-radius: 50%;
 }
 
+.ghosts {
+	height: 50px;
+	width: 50px;
+}
+.g1 {
+	background: url("images/ghost-pink.png");
+	background-size: contain;
+}
+
+.g2 {
+	background: url("images/ghost-red.png");
+	background-size: contain;
+}
+
+.g3 {
+	background: url("images/ghost-orange.png");
+	background-size: contain;
+}
+
+.g4 {
+	background: url("images/ghost-turquoise.png");
+	background-size: contain;
+}
+
+/*#ms-pac-man {
+	height: 50px;
+	width: 50px;
+	background-color:
+	border-radius:
+}*/
+
 .wall {
 	height: 50px;
 	width: 50px;
