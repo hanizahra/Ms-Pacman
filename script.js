@@ -194,9 +194,61 @@ document.onkeydown = function(evnt){
 	}
 }
 
+// let pinky = {  // 4 on map
+// x: 13,
+// y: 14
+// }
+
+// let reddy = {  // 5 on map
+// x: 14,
+// y: 14
+// }
+
+// let orangey = {  // 6 on map
+// x: 13,
+// y: 15
+// }
+
+// let turquoisey = {  // 7 on map
+// x: 14,
+// y: 15 
+// }
+
+function movingPinky() {
+	if (map[pinky.y-1][pinky.x] !== 1 && map[pinky.y-2][pinky.x] !== 1){ // go up
+		map[pinky.y][pinky.x] = 0
+		pinky.y -= 1
+		map[pinky.y][pinky.x] = 4;
+		drawMap();
+	}
+	if (map[pinky.y][pinky.x+1] !== 1){ // go right
+		map[pinky.y][pinky.x] = 0
+		pinky.x++
+		map[pinky.y][pinky.x] = 4;
+		drawMap();
+	}
+	else if (map[pinky.y][pinky.x -1] !== 1){ // go left
+		map[pinky.y][pinky.x] = 0
+		pinky.x--
+		map[pinky.y][pinky.x] = 4;
+		drawMap();
+	}
+	if (map[pinky.y+1][pinky.x] !== 1){ // go down
+		map[pinky.y][pinky.x] = 0
+		pinky.y++
+		map[pinky.y][pinky.x] = 4;
+		drawMap();
+	}
+}
+
+// setInterval(movingPinky, 500);
+
 
 drawMap();
-
+// setInterval(drawMap, 500);
+// setTimeout(drawMap, 500)
+// console.log(setInterval);
+// setInterval(onkeydown, 500);
 
 
 let score = 0;
@@ -293,7 +345,6 @@ function updateScoreBoard() {
 	}
 }
 
-// setInterval(drawMap, 500);
 
 // document.getElementById('board').map[0]
 
