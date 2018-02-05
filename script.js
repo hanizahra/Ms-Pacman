@@ -50,7 +50,35 @@ function drawMap() {
 			} else if (map[y][x] === 2) {
 				document.getElementById('board').innerHTML += "<div class = 'empty-square'></div>";
 			} else if (map[y][x] === 3) {
-				document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
+				let holder = document.createElement('div');
+				holder.classList.add('ms-pac-man')
+				holder.classList.add('ms-pac-man-right');
+				document.getElementById('board').appendChild(holder);
+				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
+			} else if (map[y][x] === 3.1) {
+				let holder = document.createElement('div');
+				holder.classList.add('ms-pac-man')
+				holder.classList.add('ms-pac-man-left');
+				document.getElementById('board').appendChild(holder);
+				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
+			} else if (map[y][x] === 3.2) {
+				let holder = document.createElement('div');
+				holder.classList.add('ms-pac-man')
+				holder.classList.add('ms-pac-man-up');
+				document.getElementById('board').appendChild(holder);
+				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
+			} else if (map[y][x] === 3.3) {
+				let holder = document.createElement('div');
+				holder.classList.add('ms-pac-man')
+				holder.classList.add('ms-pac-man-right-down');
+				document.getElementById('board').appendChild(holder);
+				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
+			} else if (map[y][x] === 3.4) {
+				let holder = document.createElement('div');
+				holder.classList.add('ms-pac-man')
+				holder.classList.add('ms-pac-man-left-down');
+				document.getElementById('board').appendChild(holder);
+				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
 			} else if (map[y][x] === 4) {
 				let holder = document.createElement('div');
 				holder.classList.add('ghosts')
@@ -115,7 +143,7 @@ document.onkeydown = function(evnt){
 			if (map[msPacMan.y][msPacMan.x -1] !== 1){
 				map[msPacMan.y][msPacMan.x] = 2
 				msPacMan.x--
-				map[msPacMan.y][msPacMan.x] = 3;
+				map[msPacMan.y][msPacMan.x] = 3.1;
 				drawMap();
 				if (map[msPacMan.y][msPacMan.x - 1] === 0){
 					incrementScore ();
@@ -128,7 +156,7 @@ document.onkeydown = function(evnt){
 			if (map[msPacMan.y-1][msPacMan.x] !== 1){
 				map[msPacMan.y][msPacMan.x] = 2
 				msPacMan.y--
-				map[msPacMan.y][msPacMan.x] = 3;
+				map[msPacMan.y][msPacMan.x] = 3.2;
 				drawMap();
 				if (map[msPacMan.y-1][msPacMan.x] === 0){
 					incrementScore ();
@@ -154,7 +182,7 @@ document.onkeydown = function(evnt){
 			if (map[msPacMan.y+1][msPacMan.x] !== 1){
 				map[msPacMan.y][msPacMan.x] = 2
 				msPacMan.y++
-				map[msPacMan.y][msPacMan.x] = 3;
+				map[msPacMan.y][msPacMan.x] = 3.3;
 				drawMap();
 				if (map[msPacMan.y][msPacMan.y + 1] === 0){
 					incrementScore ();
@@ -181,7 +209,7 @@ function incrementScore () {
 }
 
 function userWon () {
-	if (score >= 30) {  //1590
+	if (score >= 200) {  //1590
 		// window.location.href = "index3.html";
 		document.getElementById('board').setAttribute('id', 'board-end-game');
 		document.getElementById('score-board').setAttribute('id', 'score-board-appear');

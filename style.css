@@ -25,11 +25,51 @@
 	color: yellow;
 }
 
-#ms-pac-man {
+.ms-pac-man {
 	height: 50px;
 	width: 50px;
-	background-color: yellow;
-	border-radius: 50%;
+	/*background-color: yellow;
+	border-radius: 50%;*/
+}
+
+.ms-pac-man-right {
+	background: url("images/ms-pac-man-right.gif");
+	background-size: contain;
+}
+
+.ms-pac-man-left {
+	background: url("images/ms-pac-man-left.gif");
+	background-size: contain;
+}
+
+.ms-pac-man-left-down {
+	background: url("images/ms-pac-man-leftDown.gif");
+	background-size: contain;
+}
+
+.ms-pac-man-left-up {
+	background: url("images/ms-pac-man-leftUp.gif");
+	background-size: contain;
+}
+
+.ms-pac-man-right-down {
+	background: url("images/ms-pac-man-rightDown.gif");
+	background-size: contain;
+}
+
+.ms-pac-man-right-up {
+	background: url("images/ms-pac-man-rightUp.gif");
+	background-size: contain;
+}
+
+.ms-pac-man-up {
+	background: url("images/ms-pac-man-up.png");
+	background-size: contain;
+}
+
+.ms-pac-man-down {
+	background: url("images/ms-pac-man-down.png");
+	background-size: contain;
 }
 
 .ghosts {
@@ -53,6 +93,16 @@
 
 .g4 {
 	background: url("images/ghost-turquoise.png");
+	background-size: contain;
+}
+
+.g5blue {
+	background: url("images/blueghost1.png");
+	background-size: contain;
+}
+
+.g6eyes {
+	background: url("images/ghost-eyes.png");
 	background-size: contain;
 }
 
