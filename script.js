@@ -197,6 +197,8 @@ document.onkeydown = function(evnt){
 
 drawMap();
 
+
+
 let score = 0;
 const circlePoints = document.querySelector('.white-circle');
 const scoreDisplay = document.querySelector('#score');
@@ -290,6 +292,8 @@ function updateScoreBoard() {
 		document.getElementById('10-name').innerText = userName;
 	}
 }
+
+// setInterval(drawMap, 500);
 
 // document.getElementById('board').map[0]
 
