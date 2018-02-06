@@ -48,36 +48,36 @@ function drawMap() {
 			} else if (map[y][x] === 0) {
 				document.getElementById('board').innerHTML += "<div class = 'white-circle'></div>";
 			} else if (map[y][x] === 2) {
-				document.getElementById('board').innerHTML += "<div class = 'empty-square'></div>";
+				document.getElementById('board').innerHTML += `<div class = 'empty-square white-circle' id='${x}x${y}'></div>`;
 			} else if (map[y][x] === 3) {
 				let holder = document.createElement('div');
 				holder.classList.add('ms-pac-man')
 				holder.classList.add('ms-pac-man-right');
-				document.getElementById('board').appendChild(holder);
+				document.getElementById('game').appendChild(holder);
 				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
 			} else if (map[y][x] === 3.1) {
 				let holder = document.createElement('div');
 				holder.classList.add('ms-pac-man')
 				holder.classList.add('ms-pac-man-left');
-				document.getElementById('board').appendChild(holder);
+				document.getElementById('game').appendChild(holder);
 				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
 			} else if (map[y][x] === 3.2) {
 				let holder = document.createElement('div');
 				holder.classList.add('ms-pac-man')
 				holder.classList.add('ms-pac-man-up');
-				document.getElementById('board').appendChild(holder);
+				document.getElementById('game').appendChild(holder);
 				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
 			} else if (map[y][x] === 3.3) {
 				let holder = document.createElement('div');
 				holder.classList.add('ms-pac-man')
 				holder.classList.add('ms-pac-man-right-down');
-				document.getElementById('board').appendChild(holder);
+				document.getElementById('game').appendChild(holder);
 				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
 			} else if (map[y][x] === 3.4) {
 				let holder = document.createElement('div');
 				holder.classList.add('ms-pac-man')
 				holder.classList.add('ms-pac-man-left-down');
-				document.getElementById('board').appendChild(holder);
+				document.getElementById('game').appendChild(holder);
 				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
 			} else if (map[y][x] === 4) {
 				let holder = document.createElement('div');
@@ -113,86 +113,139 @@ function drawMap() {
 	}
 }
 
+let x = 0
+let y = 0
+
+let orient = 'right';
+
+function setOrientation (evnt){
+	switch(evnt.keyCode){
+		case 37: //left
+		orient = "left";
+		break;
+			
+		case 38: //up
+		orient = "up";	
+		break;
+			
+			
+		case 39: //right
+		orient = "right";	
+		break;
+			
+			
+		case 40: //down
+		orient = "down";
+		break;						
+	}
+} 
 
 
-// function styleMap() {
-// 	document.getElementById('board').innerHTML = "";
-// 	for (let y = 0; y < map.length; y++) {
-// 		for (let x = 0; x < map[y].length; x++) {
-// 			if (map[y][x] === map[0][0]) {
-// 				document.getElementById('board').innerHTML += "<div class = 'wall wall-corner'></div>";
-// 			} 
-// 			if (map[y][x] === map[0][27]) {
-// 				document.getElementById('board').innerHTML += "<div class = 'wall wall-corner'></div>";
-// 			} 
-// 			if (map[y][x] === map[30][0]) {
-// 				document.getElementById('board').innerHTML += "<div class = 'wall wall-corner'></div>";
-// 			} 
-// 			if (map[y][x] === map[30][27]) {
-// 				document.getElementById('board').innerHTML += "<div class = 'wall wall-corner'></div>";
+
+const msPacManMoving = document.querySelector('.ms-pac-man .ms-pac-man-right');
+
+function moveMsPacMan (evnt) {
+	let destinationCoord;
+	switch (orient) {
+		case "left":
+		let destinationCoord = {y: map[msPacMan.y], x: [msPacMan.x-100]};
+		break;
+
+		case "up":
+		let destinationCoord = {y: map[msPacMan.y-100], x: [msPacMan.x]}
+		break;
+
+		case "right":
+		let destinationCoord = {y: map[msPacMan.y], x: [msPacMan.x+100]}
+		break;
+
+		case "down":
+		let destinationCoord = {y: map[msPacMan.y+100], x: [msPacMan.x]}
+		break;
+	}
+
+	const destination = map[destinationCoord.y][destinationCoord.x]
+
+	msPacManMoving.style.left = `${x}px`
+	msPacManMoving.style.top =  `${y}px`
+}
+
+
+
+// document.onkeydown = function(evnt){
+// 	switch(evnt.keyCode){
+// 		case 37: //left
+// 			if (map[msPacMan.y][msPacMan.x -1] !== 1){
+// 				map[msPacMan.y][msPacMan.x] = 2
+// 				msPacMan.x--
+// 				map[msPacMan.y][msPacMan.x] = 3.1;
+// 				// drawMap();
+// 				let orient = "left";
+// 				console.log(`Now facing ${orient}`)	
+// 				if (map[msPacMan.y][msPacMan.x - 1] === 0){
+// 					incrementScore ();
+// 				};
+// 			} else {
+// 				break;
 // 			}
-// 		}
+			
+// 		case 38: //up
+// 			if (map[msPacMan.y-1][msPacMan.x] !== 1){
+// 				map[msPacMan.y][msPacMan.x] = 2
+// 				msPacMan.y--
+// 				map[msPacMan.y][msPacMan.x] = 3.2;
+// 				// drawMap();
+// 				let orient = "up";
+// 				console.log(`Now facing ${orient}`)	
+// 				if (map[msPacMan.y-1][msPacMan.x] === 0){
+// 					incrementScore ();
+// 				};
+// 			} else {
+// 				break;
+// 			}
+			
+// 		case 39: //right
+// 			if (map[msPacMan.y][msPacMan.x+1] !== 1){
+// 				map[msPacMan.y][msPacMan.x] = 2
+// 				msPacMan.x++
+// 				map[msPacMan.y][msPacMan.x] = 3;
+// 				// drawMap();
+// 				movePacMan();
+// 				let orient = "right";
+// 				console.log(`Now facing ${orient}`)	
+// 				if (map[msPacMan.y][msPacMan.x + 1] === 0){
+// 					incrementScore ();
+// 				};
+// 			} else {
+// 				break;
+// 			}
+			
+// 		case 40: //down
+// 			if (map[msPacMan.y+1][msPacMan.x] !== 1){
+// 				map[msPacMan.y][msPacMan.x] = 2
+// 				msPacMan.y++
+// 				map[msPacMan.y][msPacMan.x] = 3.3;
+// 				// drawMap();
+// 				let orient = "down";
+// 				console.log(`Now facing ${orient}`)	
+// 				if (map[msPacMan.y][msPacMan.y + 1] === 0){
+// 					incrementScore ();
+// 				};
+// 			} else {
+// 				break;	
+// 			}					
 // 	}
 // }
 
+// function movePacMan(){
+// 	let msPac = document.querySelector('.ms-pac-man');
+// 	// document.getElementById('board').appendChild(msPac);
+// 	document.getElementById(`${x}x${y}`).appendChild(msPac);
+// 	// map.move([14][0], [14][0], [14][1]); // not working
+// 	// map.move([14][0], [14][1]); // not working
+// 	// move(map.length, [14][0], [14][1]); // not working
+// }
 
-
-document.onkeydown = function(evnt){
-	switch(evnt.keyCode){
-		case 37: //left
-			if (map[msPacMan.y][msPacMan.x -1] !== 1){
-				map[msPacMan.y][msPacMan.x] = 2
-				msPacMan.x--
-				map[msPacMan.y][msPacMan.x] = 3.1;
-				drawMap();
-				if (map[msPacMan.y][msPacMan.x - 1] === 0){
-					incrementScore ();
-				};
-			} else {
-				break;
-			}
-			
-		case 38: //up
-			if (map[msPacMan.y-1][msPacMan.x] !== 1){
-				map[msPacMan.y][msPacMan.x] = 2
-				msPacMan.y--
-				map[msPacMan.y][msPacMan.x] = 3.2;
-				drawMap();
-				if (map[msPacMan.y-1][msPacMan.x] === 0){
-					incrementScore ();
-				};
-			} else {
-				break;
-			}
-			
-		case 39: //right
-			if (map[msPacMan.y][msPacMan.x+1] !== 1){
-				map[msPacMan.y][msPacMan.x] = 2
-				msPacMan.x++
-				map[msPacMan.y][msPacMan.x] = 3;
-				drawMap();
-				if (map[msPacMan.y][msPacMan.x + 1] === 0){
-					incrementScore ();
-				};
-			} else {
-				break;
-			}
-			
-		case 40: //down
-			if (map[msPacMan.y+1][msPacMan.x] !== 1){
-				map[msPacMan.y][msPacMan.x] = 2
-				msPacMan.y++
-				map[msPacMan.y][msPacMan.x] = 3.3;
-				drawMap();
-				if (map[msPacMan.y][msPacMan.y + 1] === 0){
-					incrementScore ();
-				};
-			} else {
-				break;	
-			}
-								
-	}
-}
 
 // let pinky = {  // 4 on map
 // x: 13,
@@ -245,11 +298,13 @@ function movingPinky() {
 
 
 drawMap();
-// setInterval(drawMap, 500);
+// setInterval(drawMap, -100);
 // setTimeout(drawMap, 500)
 // console.log(setInterval);
 // setInterval(onkeydown, 500);
 
+document.addEventListener('keydown', setOrientation);
+setInterval(moveMsPacMan, 500)
 
 let score = 0;
 const circlePoints = document.querySelector('.white-circle');
