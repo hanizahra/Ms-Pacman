@@ -113,10 +113,44 @@ function drawMap() {
 	}
 }
 
-let x = 0
-let y = 0
+
 
 let orient = 'right';
+
+
+
+const msPacManMoving = document.querySelector('.ms-pac-man .ms-pac-man-right');
+
+function moveMsPacMan (evnt) {
+	let destinationCoord;
+	switch (orient) {
+		case "left":
+		destinationCoord = {y: msPacMan.y, x: msPacMan.x-100};
+		console.log("going left");
+		break;
+
+		case "up":
+		destinationCoord = {y: msPacMan.y-100, x: msPacMan.x}
+		console.log("going up");
+		break;
+
+		case "right":
+		destinationCoord = {y: msPacMan.y, x: msPacMan.x+100}
+		console.log("going right");
+		break;
+
+		case "down":
+		destinationCoord = {y: msPacMan.y+100, x: msPacMan.x}
+		console.log("going down");
+		break;
+	}
+
+	const destination = map[destinationCoord]
+
+	msPacManMoving.style.left = `${x}px`
+	msPacManMoving.style.top =  `${y}px`
+}
+
 
 function setOrientation (evnt){
 	switch(evnt.keyCode){
@@ -138,37 +172,12 @@ function setOrientation (evnt){
 		orient = "down";
 		break;						
 	}
-} 
+	console.log("hello set Orient")
 
-
-
-const msPacManMoving = document.querySelector('.ms-pac-man .ms-pac-man-right');
-
-function moveMsPacMan (evnt) {
-	let destinationCoord;
-	switch (orient) {
-		case "left":
-		let destinationCoord = {y: map[msPacMan.y], x: [msPacMan.x-100]};
-		break;
-
-		case "up":
-		let destinationCoord = {y: map[msPacMan.y-100], x: [msPacMan.x]}
-		break;
-
-		case "right":
-		let destinationCoord = {y: map[msPacMan.y], x: [msPacMan.x+100]}
-		break;
-
-		case "down":
-		let destinationCoord = {y: map[msPacMan.y+100], x: [msPacMan.x]}
-		break;
-	}
-
-	const destination = map[destinationCoord.y][destinationCoord.x]
-
-	msPacManMoving.style.left = `${x}px`
-	msPacManMoving.style.top =  `${y}px`
 }
+
+
+// setInterval(moveMsPacMan, 500);
 
 
 
@@ -304,7 +313,7 @@ drawMap();
 // setInterval(onkeydown, 500);
 
 document.addEventListener('keydown', setOrientation);
-setInterval(moveMsPacMan, 500)
+// setInterval(moveMsPacMan, 500)
 
 let score = 0;
 const circlePoints = document.querySelector('.white-circle');
