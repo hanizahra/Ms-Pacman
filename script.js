@@ -1,5 +1,5 @@
 let msPacMan = {
-	x: 0,
+	x: 1,
 	y: 14
 }
 
@@ -19,7 +19,7 @@ let map =[
 [1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1],
 [1,1,1,1,1,1,0,1,1,0,1,1,1,0,0,1,1,1,0,1,1,0,1,1,1,1,1,1],
 [1,1,1,1,1,1,0,1,1,0,1,0,0,0,0,0,0,1,0,1,1,0,1,1,1,1,1,1],
-[3,0,0,0,0,0,0,0,0,0,1,0,0,4,5,0,0,1,0,0,0,0,0,0,0,0,0,1],
+[1,3,0,0,0,0,0,0,0,0,1,0,0,4,5,0,0,1,0,0,0,0,0,0,0,0,0,1],
 [1,1,1,1,1,1,0,1,1,0,1,0,0,6,7,0,0,1,0,1,1,0,1,1,1,1,1,1],
 [1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1],
 [1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,1,1],
@@ -54,6 +54,7 @@ function drawMap() {
 				holder.classList.add('ms-pac-man')
 				holder.classList.add('ms-pac-man-right');
 				document.getElementById('board').appendChild(holder);
+				document.getElementById('board').innerHTML += `<div class = 'empty-square' id='${x}x${y}'></div>`;
 				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
 			} else if (map[y][x] === 3.1) {
 				let holder = document.createElement('div');
@@ -115,7 +116,7 @@ function drawMap() {
 
 
 
-// let orient = 'right';
+let orient = 'right';
 // let x = 0
 // let y = 0
 
@@ -171,55 +172,55 @@ function setOrientation (evnt){
 			
 		case 40: //down
 		orient = "down";
-		break;						
+		break;	
+
+		case 32: //space
+		orient = null					
 	}
-	console.log("hello set Orient")
+	console.log(`hello set Orient ${orient}`)
 
 }
 
 function init(){
 	msPacManMoving=document.querySelector('.ms-pac-man');				
 	msPacManMoving.style.position='absolute';
-	msPacManMoving.style.left='0px';
+	msPacManMoving.style.left='45px';
 	msPacManMoving.style.top='630px';
 }
-function moveMsPacMan(evnt){				
-	let key_code=evnt.which||evnt.keyCode;
-	switch(key_code){
-		case 37:
+function moveMsPacMan(){				
+	// let key_code=evnt.which||evnt.keyCode;
+	switch(orient){
+		case 'left':
+		console.log(map[msPacMan.y][msPacMan.x-1])
 			if (map[msPacMan.y][msPacMan.x -1] !== 1){
 				map[msPacMan.y][msPacMan.x] = 2
 				msPacMan.x--
 				map[msPacMan.y][msPacMan.x] = 3.1;
-				msPacManMoving.style.left=parseInt(msPacManMoving.style.left)-10 +'px';
-				orient = "left"
+				msPacManMoving.style.left=parseInt(msPacManMoving.style.left)-45 +'px';
 				}
 				break;
-		case 38:
+		case 'up':
 			if (map[msPacMan.y-1][msPacMan.x] !== 1){
 				map[msPacMan.y][msPacMan.x] = 2
 				msPacMan.y--
 				map[msPacMan.y][msPacMan.x] = 3.2;
-				msPacManMoving.style.top=parseInt(msPacManMoving.style.top)-10 +'px';
-				orient = "up" 
+				msPacManMoving.style.top=parseInt(msPacManMoving.style.top)-45 +'px';
 				}
 				break;
-		case 39:
+		case 'right':
 			if (map[msPacMan.y][msPacMan.x+1] !== 1){
 				map[msPacMan.y][msPacMan.x] = 2
 				msPacMan.x++
 				map[msPacMan.y][msPacMan.x] = 3;
-				msPacManMoving.style.left=parseInt(msPacManMoving.style.left)+10 +'px';
-				orient = "right"
+				msPacManMoving.style.left=parseInt(msPacManMoving.style.left)+45 +'px';
 				}
 				break;
-		case 40:
+		case 'down':
 			if (map[msPacMan.y+1][msPacMan.x] !== 1){
 				map[msPacMan.y][msPacMan.x] = 2
 				msPacMan.y++
 				map[msPacMan.y][msPacMan.x] = 3.3;
-				msPacManMoving.style.top=parseInt(msPacManMoving.style.top)+10 +'px';
-				orient = "down"
+				msPacManMoving.style.top=parseInt(msPacManMoving.style.top)+45 +'px';
 				}
 				break;						
 	}
@@ -228,7 +229,38 @@ function moveMsPacMan(evnt){
 
 window.onload=init;
 
-// setInterval(moveMsPacMan, 500);
+// Collision Detection
+
+// let theWalls = document.querySelectorAll('.wall')
+// let msPacManDiv = document.querySelectorAll('.msPacMan')
+
+// function collisionDet (){
+// 	for (let y = 0; y < theWalls.length; y++) {
+// 			for (let x = 0; x < theWalls[y].length; x++) {
+// 				let wallY = theWalls[y];
+// 				let wallX = theWalls[x];
+// 				let wallBox = {x: `${wallX}`, y: `${wallY}`, width: 50, height: 50}
+// 				console.log(wallBox);
+// 	   }
+// 		for (let y = 0; y < msPacManDiv.length; y++) {
+// 				for (let x = 0; x < msPacManDiv[y].length; x++) {
+// 					let pacY = msPacManDiv[y];
+// 					let pacX = msPacManDiv[x];
+// 					let pacBox = {x: `${pacX}`, y: `${pacY}`, width: 50, height: 50}
+// 					console.log(pacBox);
+// 		   }
+		
+// 		if (pacBox.x < wallBox.x + wallBox.width &&
+// 	   pacBox.x + pacBox.width > wallBox.x &&
+// 	   pacBox.y < wallBox.y + wallBox.height &&
+// 	   pacBox.height + pacBox.y > wallBox.y) {
+// 					console.log('collision detected')
+// 			}
+// 		}
+// 	}
+// }
+
+setInterval(moveMsPacMan, 500);
 
 
 
@@ -363,7 +395,7 @@ drawMap();
 // console.log(setInterval);
 // setInterval(onkeydown, 500);
 
-document.addEventListener('keydown', moveMsPacMan);
+document.addEventListener('keydown', setOrientation);
 // setInterval(moveMsPacMan, 500)
 
 let score = 0;

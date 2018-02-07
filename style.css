@@ -6,7 +6,7 @@
 
 #body-1 {
 	text-align: center;
-	background-color: white;
+	background-color: black;
 	margin-top: 150px;
 }
 
@@ -30,7 +30,6 @@
 }
 
 .ms-pac-man {
-	position: relative;
 	top: 1066px;
 	left: 1230px;
 	height: 50px;
