@@ -115,41 +115,42 @@ function drawMap() {
 
 
 
-let orient = 'right';
+// let orient = 'right';
+// let x = 0
+// let y = 0
 
 
+// const msPacManMoving = document.querySelector('.ms-pac-man');
 
-const msPacManMoving = document.querySelector('.ms-pac-man .ms-pac-man-right');
+// function moveMsPacMan (evnt) {
+// 	let destinationCoord;
+// 	switch (orient) {
+// 		case "left":
+// 		destinationCoord = {y: msPacMan.y, x: msPacMan.x-100};
+// 		console.log("going left");
+// 		break;
 
-function moveMsPacMan (evnt) {
-	let destinationCoord;
-	switch (orient) {
-		case "left":
-		destinationCoord = {y: msPacMan.y, x: msPacMan.x-100};
-		console.log("going left");
-		break;
+// 		case "up":
+// 		destinationCoord = {y: msPacMan.y-100, x: msPacMan.x}
+// 		console.log("going up");
+// 		break;
 
-		case "up":
-		destinationCoord = {y: msPacMan.y-100, x: msPacMan.x}
-		console.log("going up");
-		break;
+// 		case "right":
+// 		destinationCoord = {y: msPacMan.y, x: msPacMan.x+100}
+// 		console.log("going right");
+// 		break;
 
-		case "right":
-		destinationCoord = {y: msPacMan.y, x: msPacMan.x+100}
-		console.log("going right");
-		break;
+// 		case "down":
+// 		destinationCoord = {y: msPacMan.y+100, x: msPacMan.x}
+// 		console.log("going down");
+// 		break;
+// 	}
 
-		case "down":
-		destinationCoord = {y: msPacMan.y+100, x: msPacMan.x}
-		console.log("going down");
-		break;
-	}
+// 	const destination = map[destinationCoord]
 
-	const destination = map[destinationCoord]
-
-	msPacManMoving.style.left = `${x}px`
-	msPacManMoving.style.top =  `${y}px`
-}
+// 	msPacManMoving.style.left = `${x}px`
+// 	msPacManMoving.style.top =  `${y}px`
+// }
 
 
 function setOrientation (evnt){
@@ -176,6 +177,43 @@ function setOrientation (evnt){
 
 }
 
+function init(){
+	msPacManMoving=document.querySelector('.ms-pac-man');				
+	msPacManMoving.style.position='relative';
+	msPacManMoving.style.left='0px';
+	msPacManMoving.style.top='0px';
+}
+function moveMsPacMan(evnt){				
+	let key_code=evnt.which||evnt.keyCode;
+	switch(key_code){
+		case 37:
+			msPacManMoving.style.left=parseInt(msPacManMoving.style.left)-10 +'px';
+			break;
+		case 38:
+			msPacManMoving.style.top=parseInt(msPacManMoving.style.top)-10 +'px';
+			break;
+		case 39:
+			msPacManMoving.style.left=parseInt(msPacManMoving.style.left)+10 +'px';
+			break;
+		case 40:
+			msPacManMoving.style.top=parseInt(msPacManMoving.style.top)+10 +'px';
+			break;						
+	}
+}
+
+// function moveLeft(){
+// 	msPacManMoving.style.left=parseInt(msPacManMoving.style.left)-10 +'px';
+// }
+// function moveUp(){
+// 	msPacManMoving.style.top=parseInt(msPacManMoving.style.top)-10 +'px';
+// }
+// function moveRight(){
+// 	msPacManMoving.style.left=parseInt(msPacManMoving.style.left)+10 +'px';
+// }
+// function moveDown(){
+// 	msPacManMoving.style.top=parseInt(msPacManMoving.style.top)+10 +'px';
+// }
+window.onload=init;
 
 // setInterval(moveMsPacMan, 500);
 
@@ -312,7 +350,7 @@ drawMap();
 // console.log(setInterval);
 // setInterval(onkeydown, 500);
 
-document.addEventListener('keydown', setOrientation);
+document.addEventListener('keydown', moveMsPacMan);
 // setInterval(moveMsPacMan, 500)
 
 let score = 0;
