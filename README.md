@@ -41,4 +41,4 @@ https://codepen.io/hellokatili/pen/xwKRmo
 
 <p>The ghost characters were added last but with time a constraint, the logic to their random movements is fairly restricted.</p>
 
-<p>The last obstacle that could not be achieved was the collision detection between the Ms. PacMan character and the ghosts. However, a score count was created and a logic drawn to include high scores to a scoreboard as the final page. The user is able to input their name.</p>
+<p>The last big obstacle that could not be achieved was the collision detection between the Ms. PacMan character and the ghosts. Due to that, web page/device responsiveness wasn't attempted. However, a score count was created and a logic drawn to include high scores to a scoreboard as the final page. The user is able to input their name.</p>
