@@ -114,7 +114,7 @@ function drawMap() {
 	}
 }
 
-
+drawMap();
 
 let orient = 'right';
 // let x = 0
@@ -181,6 +181,7 @@ function setOrientation (evnt){
 
 }
 
+
 function init(){
 	msPacManMoving=document.querySelector('.ms-pac-man');				
 	msPacManMoving.style.position='absolute';
@@ -197,6 +198,9 @@ function moveMsPacMan(){
 				msPacMan.x--
 				map[msPacMan.y][msPacMan.x] = 3.1;
 				msPacManMoving.style.left=parseInt(msPacManMoving.style.left)-45 +'px';
+					if (map[msPacMan.y][msPacMan.x - 1] === 0){
+						incrementScore ();
+					};
 				}
 				break;
 		case 'up':
@@ -205,6 +209,9 @@ function moveMsPacMan(){
 				msPacMan.y--
 				map[msPacMan.y][msPacMan.x] = 3.2;
 				msPacManMoving.style.top=parseInt(msPacManMoving.style.top)-45 +'px';
+					if (map[msPacMan.y-1][msPacMan.x] === 0){
+						incrementScore ();
+					};
 				}
 				break;
 		case 'right':
@@ -213,6 +220,9 @@ function moveMsPacMan(){
 				msPacMan.x++
 				map[msPacMan.y][msPacMan.x] = 3;
 				msPacManMoving.style.left=parseInt(msPacManMoving.style.left)+45 +'px';
+					if (map[msPacMan.y][msPacMan.x + 1] === 0){
+						incrementScore ();
+					};
 				}
 				break;
 		case 'down':
@@ -221,13 +231,16 @@ function moveMsPacMan(){
 				msPacMan.y++
 				map[msPacMan.y][msPacMan.x] = 3.3;
 				msPacManMoving.style.top=parseInt(msPacManMoving.style.top)+45 +'px';
+					if (map[msPacMan.y][msPacMan.y + 1] === 0){
+						incrementScore ();
+					};
 				}
 				break;						
 	}
 }
 
 
-window.onload=init;
+// window.onload=init;
 
 // Collision Detection
 
@@ -359,37 +372,37 @@ setInterval(moveMsPacMan, 500);
 // y: 15 
 // }
 
-function movingPinky() {
-	if (map[pinky.y-1][pinky.x] !== 1 && map[pinky.y-2][pinky.x] !== 1){ // go up
-		map[pinky.y][pinky.x] = 0
-		pinky.y -= 1
-		map[pinky.y][pinky.x] = 4;
-		drawMap();
-	}
-	if (map[pinky.y][pinky.x+1] !== 1){ // go right
-		map[pinky.y][pinky.x] = 0
-		pinky.x++
-		map[pinky.y][pinky.x] = 4;
-		drawMap();
-	}
-	else if (map[pinky.y][pinky.x -1] !== 1){ // go left
-		map[pinky.y][pinky.x] = 0
-		pinky.x--
-		map[pinky.y][pinky.x] = 4;
-		drawMap();
-	}
-	if (map[pinky.y+1][pinky.x] !== 1){ // go down
-		map[pinky.y][pinky.x] = 0
-		pinky.y++
-		map[pinky.y][pinky.x] = 4;
-		drawMap();
-	}
-}
+// function movingPinky() {
+// 	if (map[pinky.y-1][pinky.x] !== 1 && map[pinky.y-2][pinky.x] !== 1){ // go up
+// 		map[pinky.y][pinky.x] = 0
+// 		pinky.y -= 1
+// 		map[pinky.y][pinky.x] = 4;
+// 		drawMap();
+// 	}
+// 	if (map[pinky.y][pinky.x+1] !== 1){ // go right
+// 		map[pinky.y][pinky.x] = 0
+// 		pinky.x++
+// 		map[pinky.y][pinky.x] = 4;
+// 		drawMap();
+// 	}
+// 	else if (map[pinky.y][pinky.x -1] !== 1){ // go left
+// 		map[pinky.y][pinky.x] = 0
+// 		pinky.x--
+// 		map[pinky.y][pinky.x] = 4;
+// 		drawMap();
+// 	}
+// 	if (map[pinky.y+1][pinky.x] !== 1){ // go down
+// 		map[pinky.y][pinky.x] = 0
+// 		pinky.y++
+// 		map[pinky.y][pinky.x] = 4;
+// 		drawMap();
+// 	}
+// }
 
 // setInterval(movingPinky, 500);
 
 
-drawMap();
+// drawMap();
 // setInterval(drawMap, -100);
 // setTimeout(drawMap, 500)
 // console.log(setInterval);
@@ -410,7 +423,7 @@ function incrementScore () {
 }
 
 function userWon () {
-	if (score >= 200) {  //1590
+	if (score >= 100) {  //1590
 		// window.location.href = "index3.html";
 		document.getElementById('board').setAttribute('id', 'board-end-game');
 		document.getElementById('score-board').setAttribute('id', 'score-board-appear');
@@ -494,5 +507,6 @@ function updateScoreBoard() {
 
 
 // document.getElementById('board').map[0]
+window.onload=init;
 
 
