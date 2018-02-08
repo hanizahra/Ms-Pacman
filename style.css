@@ -3,11 +3,21 @@
 	src: url(fonts/PacFont.ttf);
 }
 
+@font-face {
+	font-family: "prstartk";
+	src: url(fonts/prstartk.ttf);
+}
+
+@font-face {
+	font-family: "prstart";
+	src: url(fonts/prstart.ttf);
+}
 
 #body-1 {
 	text-align: center;
 	background-color: black;
 	margin-top: 150px;
+	font-family: helvetica, sans-serif;
 }
 
 #board {
@@ -79,8 +89,8 @@
 }
 
 .ghosts {
-	height: 50px;
-	width: 50px;
+	height: 45px;
+	width: 45px;
 }
 .g1 {
 	background: url("images/ghost-pink.png");
@@ -168,10 +178,11 @@ div{
 }
 
 #score {
-	color: black;
+	color: pink;
 	font-size: 60px;
-	background-color: white;
-	text-align: center;
+/*	background-color: pink;
+*/	text-align: center;
+	font-family: "prstart";
 }
 
 #score-board {
@@ -199,20 +210,24 @@ h1 {
 	color: white;
 	font-size: 100px;
 	margin: 45px 0px 0px 0px;
+	font-family: "prstartk";
 }
 
 #play-again {
 	color: white;
 	font-size: 50px;
-	margin: 0px 0px 0px 0px;
+	margin: 80px 0px 0px 0px;
+	font-family: "prstartk";
 }
 
 table {
 	background-color: yellow;
-	height: 700px;
-	width: 900px;
+	height: 1000px;
+	width: 1300px;
 	margin-top: 50px;
-}
+	font-family: "prstartk";
+/*	font-family: "prstart";
+*/}
 
 th {
 	background-color: pink;
@@ -223,7 +238,7 @@ tr {
 }
 
 td {
-	background-color: grey;
+	background-color: blue;
 	width: 100px;
 }
 
