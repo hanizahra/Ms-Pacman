@@ -44,11 +44,11 @@ function drawMap() {
 	for (let y = 0; y < map.length; y++) {
 		for (let x = 0; x < map[y].length; x++) {
 			if (map[y][x] === 1){
-				document.getElementById('board').innerHTML += `<div class = 'wall' id='${x}x${y}'></div>`;
+				document.getElementById('board').innerHTML += `<div class = 'wall'></div>`;
 			} else if (map[y][x] === 0) {
 				document.getElementById('board').innerHTML += `<div class = 'white-circle' id='${x}x${y}'></div>`;
 			} else if (map[y][x] === 2) {
-				document.getElementById('board').innerHTML += `<div class = 'empty-square' id='${x}x${y}'></div>`;
+				document.getElementById('board').innerHTML += `<div class = 'empty-square'></div>`;
 			} else if (map[y][x] === 3) {
 				let holder = document.createElement('div');
 				holder.classList.add('ms-pac-man')
@@ -198,44 +198,72 @@ function moveMsPacMan(){
 				msPacMan.x--
 				map[msPacMan.y][msPacMan.x] = 3.1;
 				msPacManMoving.style.left=parseInt(msPacManMoving.style.left)-45 +'px';
-					if (map[msPacMan.y][msPacMan.x - 1] === 0){
-						incrementScore ();
-					};
-				}
-				break;
+				if (map[msPacMan.y][msPacMan.x - 1] === 0){
+					incrementScore ();
+				};
+				let whiteCircle = map[msPacMan.y][msPacMan.x+1]
+				if (whiteCircle === 2) {
+					empty = document.getElementById(`${msPacMan.x}x${msPacMan.y}`);
+					console.log(empty);
+					empty.classList.remove('white-circle');
+					empty.classList.add('empty-square');
+				};	
+			}
+		break;
 		case 'up':
 			if (map[msPacMan.y-1][msPacMan.x] !== 1){
 				map[msPacMan.y][msPacMan.x] = 2
 				msPacMan.y--
 				map[msPacMan.y][msPacMan.x] = 3.2;
 				msPacManMoving.style.top=parseInt(msPacManMoving.style.top)-45 +'px';
-					if (map[msPacMan.y-1][msPacMan.x] === 0){
-						incrementScore ();
-					};
-				}
-				break;
+				if (map[msPacMan.y-1][msPacMan.x] === 0){
+					incrementScore ();
+				};
+				let whiteCircle = map[msPacMan.y+1][msPacMan.x]
+				if (whiteCircle === 2) {
+					empty = document.getElementById(`${msPacMan.x}x${msPacMan.y}`);
+					console.log(empty);
+					empty.classList.remove('white-circle');
+					empty.classList.add('empty-square');
+				};
+			}
+		break;
 		case 'right':
 			if (map[msPacMan.y][msPacMan.x+1] !== 1){
 				map[msPacMan.y][msPacMan.x] = 2
 				msPacMan.x++
 				map[msPacMan.y][msPacMan.x] = 3;
 				msPacManMoving.style.left=parseInt(msPacManMoving.style.left)+45 +'px';
-					if (map[msPacMan.y][msPacMan.x + 1] === 0){
-						incrementScore ();
-					};
-				}
-				break;
+				if (map[msPacMan.y][msPacMan.x + 1] === 0){
+					incrementScore ();
+				};
+				let whiteCircle = map[msPacMan.y][msPacMan.x-1]
+				if (whiteCircle === 2) {
+					empty = document.getElementById(`${msPacMan.x}x${msPacMan.y}`);
+					console.log(empty);
+					empty.classList.remove('white-circle');
+					empty.classList.add('empty-square');
+				};
+			}
+		break;
 		case 'down':
 			if (map[msPacMan.y+1][msPacMan.x] !== 1){
 				map[msPacMan.y][msPacMan.x] = 2
 				msPacMan.y++
 				map[msPacMan.y][msPacMan.x] = 3.3;
 				msPacManMoving.style.top=parseInt(msPacManMoving.style.top)+45 +'px';
-					if (map[msPacMan.y][msPacMan.y + 1] === 0){
-						incrementScore ();
-					};
-				}
-				break;						
+				if (map[msPacMan.y][msPacMan.y + 1] === 0){
+					incrementScore ();
+				};
+				let whiteCircle = map[msPacMan.y-1][msPacMan.x]
+				if (whiteCircle === 2) {
+					empty = document.getElementById(`${msPacMan.x}x${msPacMan.y}`);
+					console.log(empty);
+					empty.classList.remove('white-circle');
+					empty.classList.add('empty-square');
+				};
+			}
+		break;						
 	}
 }
 
@@ -423,7 +451,7 @@ function incrementScore () {
 }
 
 function userWon () {
-	if (score >= 100) {  //1590
+	if (score >= 1040) {  //1040
 		// window.location.href = "index3.html";
 		document.getElementById('board').setAttribute('id', 'board-end-game');
 		document.getElementById('score-board').setAttribute('id', 'score-board-appear');
@@ -504,6 +532,8 @@ function updateScoreBoard() {
 		document.getElementById('10-name').innerText = userName;
 	}
 }
+
+
 
 
 // document.getElementById('board').map[0]
