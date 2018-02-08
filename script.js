@@ -251,74 +251,6 @@ setInterval(moveMsPacMan, 500);
 
 
 
-// document.onkeydown = function(evnt){
-// 	switch(evnt.keyCode){
-// 		case 37: //left
-// 			if (map[msPacMan.y][msPacMan.x -1] !== 1){
-// 				map[msPacMan.y][msPacMan.x] = 2
-// 				msPacMan.x--
-// 				map[msPacMan.y][msPacMan.x] = 3.1;
-// 				// drawMap();
-// 				let orient = "left";
-// 				console.log(`Now facing ${orient}`)	
-// 				if (map[msPacMan.y][msPacMan.x - 1] === 0){
-// 					incrementScore ();
-// 				};
-// 			} else {
-// 				break;
-// 			}
-			
-// 		case 38: //up
-// 			if (map[msPacMan.y-1][msPacMan.x] !== 1){
-// 				map[msPacMan.y][msPacMan.x] = 2
-// 				msPacMan.y--
-// 				map[msPacMan.y][msPacMan.x] = 3.2;
-// 				// drawMap();
-// 				let orient = "up";
-// 				console.log(`Now facing ${orient}`)	
-// 				if (map[msPacMan.y-1][msPacMan.x] === 0){
-// 					incrementScore ();
-// 				};
-// 			} else {
-// 				break;
-// 			}
-			
-// 		case 39: //right
-// 			if (map[msPacMan.y][msPacMan.x+1] !== 1){
-// 				map[msPacMan.y][msPacMan.x] = 2
-// 				msPacMan.x++
-// 				map[msPacMan.y][msPacMan.x] = 3;
-// 				// drawMap();
-// 				movePacMan();
-// 				let orient = "right";
-// 				console.log(`Now facing ${orient}`)	
-// 				if (map[msPacMan.y][msPacMan.x + 1] === 0){
-// 					incrementScore ();
-// 				};
-// 			} else {
-// 				break;
-// 			}
-			
-// 		case 40: //down
-// 			if (map[msPacMan.y+1][msPacMan.x] !== 1){
-// 				map[msPacMan.y][msPacMan.x] = 2
-// 				msPacMan.y++
-// 				map[msPacMan.y][msPacMan.x] = 3.3;
-// 				// drawMap();
-// 				let orient = "down";
-// 				console.log(`Now facing ${orient}`)	
-// 				if (map[msPacMan.y][msPacMan.y + 1] === 0){
-// 					incrementScore ();
-// 				};
-// 			} else {
-// 				break;	
-// 			}					
-// 	}
-// }
-
-
-
-
 let pinky = {  // 4 on map
 x: 13,
 y: 14
@@ -503,7 +435,11 @@ function movingTurquoise(){
 setInterval(movingTurquoise, 500);
 initTurq()
 
+//Collision Detection
 
+function collision () {
+
+}
 
 
 
