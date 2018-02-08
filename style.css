@@ -206,10 +206,30 @@ div{
 	margin: 0 auto;	
 }
 
+#body-3 {
+	background-color: black;
+	text-align: center;
+	margin: 0 auto;	
+}
+
 h1 {
 	color: white;
 	font-size: 100px;
 	margin: 45px 0px 0px 0px;
+	font-family: "prstartk";
+}
+
+#landing-h1 {
+	color: purple;
+}
+
+#landing-h2 {
+	color: white;
+	font-family: "prstartk";
+}
+
+#landing-h3 {
+	color: white;
 	font-family: "prstartk";
 }
 
