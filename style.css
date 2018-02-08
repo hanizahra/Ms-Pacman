@@ -233,6 +233,11 @@ h1 {
 	font-family: "prstartk";
 }
 
+#landing-pac {
+	margin: -10px 10px -10px -30px;
+	height: 100px;
+}
+
 #play-again {
 	color: white;
 	font-size: 50px;
