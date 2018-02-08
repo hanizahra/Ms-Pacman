@@ -24,3 +24,21 @@
 https://www.youtube.com/watch?v=GOJBoGbRNQA <br>
 http://www.masswerk.at/JavaPac/pacman-howto.html <br>
 https://codepen.io/hellokatili/pen/xwKRmo
+
+
+<h1>Ms. Pac-Man Implementation</h1> <br><br>
+
+
+<p>Used vanilla JavaScript to program the logic of the game and CSS to style.</p>
+
+<p>Several different approaches were implemented. Initially, a table was constructed in HTML to mirror a common pattern used for the maze. A div controlled by keycode targets allowed it to flow freely throughout the map.</p>
+
+<p>That table approach was then abandoned for an array to map out the maze. The characters moved throughout the map through redraws. This proved impractical when more characters were added and the entire map had to be iterated upon constantly.</p>
+
+<p>The next approach was to maintain the map but use the initial approach of keycode targets to move the div. The same rules of movement were maintained as they still referenced the array.</p>
+
+<p>Using classes, pieces of the board were updated based on the character's movement.</p> 
+
+<p>The ghost characters were added last but with time a constraint, the logic to their random movements is fairly restricted.</p>
+
+<p>The last obstacle that could not be achieved was the collision detection between the Ms. PacMan character and the ghosts. However, a score count was created and a logic drawn to include high scores to a scoreboard as the final page. The user is able to input their name.</p>
