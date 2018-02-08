@@ -198,6 +198,8 @@ function moveMsPacMan(){
 				msPacMan.x--
 				map[msPacMan.y][msPacMan.x] = 3.1;
 				msPacManMoving.style.left=parseInt(msPacManMoving.style.left)-45 +'px';
+				let pacFacing = document.querySelector('.ms-pac-man');
+				pacFacing.setAttribute('class', 'ms-pac-man ms-pac-man-left');
 				if (map[msPacMan.y][msPacMan.x - 1] === 0){
 					incrementScore ();
 				};
@@ -216,6 +218,8 @@ function moveMsPacMan(){
 				msPacMan.y--
 				map[msPacMan.y][msPacMan.x] = 3.2;
 				msPacManMoving.style.top=parseInt(msPacManMoving.style.top)-45 +'px';
+				let pacFacing = document.querySelector('.ms-pac-man');
+				pacFacing.setAttribute('class', 'ms-pac-man ms-pac-man-up');
 				if (map[msPacMan.y-1][msPacMan.x] === 0){
 					incrementScore ();
 				};
@@ -234,6 +238,8 @@ function moveMsPacMan(){
 				msPacMan.x++
 				map[msPacMan.y][msPacMan.x] = 3;
 				msPacManMoving.style.left=parseInt(msPacManMoving.style.left)+45 +'px';
+				let pacFacing = document.querySelector('.ms-pac-man');
+				pacFacing.setAttribute('class', 'ms-pac-man ms-pac-man-right');
 				if (map[msPacMan.y][msPacMan.x + 1] === 0){
 					incrementScore ();
 				};
@@ -252,6 +258,8 @@ function moveMsPacMan(){
 				msPacMan.y++
 				map[msPacMan.y][msPacMan.x] = 3.3;
 				msPacManMoving.style.top=parseInt(msPacManMoving.style.top)+45 +'px';
+				let pacFacing = document.querySelector('.ms-pac-man');
+				pacFacing.setAttribute('class', 'ms-pac-man ms-pac-man-left-down');
 				if (map[msPacMan.y][msPacMan.y + 1] === 0){
 					incrementScore ();
 				};
