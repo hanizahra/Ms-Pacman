@@ -114,7 +114,10 @@ function drawMap() {
 	}
 }
 
+
 drawMap();
+
+
 
 let orient = 'right';
 function setOrientation (evnt){
@@ -172,7 +175,8 @@ function moveMsPacMan(){
 					console.log(empty);
 					empty.classList.remove('white-circle');
 					empty.classList.add('empty-square');
-				};	
+				};
+					
 			}
 		break;
 		case 'up':
@@ -193,6 +197,7 @@ function moveMsPacMan(){
 					empty.classList.remove('white-circle');
 					empty.classList.add('empty-square');
 				};
+				
 			}
 		break;
 		case 'right':
@@ -213,6 +218,7 @@ function moveMsPacMan(){
 					empty.classList.remove('white-circle');
 					empty.classList.add('empty-square');
 				};
+				
 			}
 		break;
 		case 'down':
@@ -233,6 +239,7 @@ function moveMsPacMan(){
 					empty.classList.remove('white-circle');
 					empty.classList.add('empty-square');
 				};
+				
 			}
 		break;						
 	}
@@ -333,34 +340,33 @@ y: 15
 }
 
 
-//Pink Ghost
+// Pink Ghost
 
 function initPink(){
 	pinkyMoving=document.querySelector('.g1');				
-	pinkyMoving.style.position='absolute';
-	pinkyMoving.style.left='585px';
-	pinkyMoving.style.top='630px';
+	pinkyMoving.style.position='relative';
+	pinkyMoving.style.left='5px';
+	pinkyMoving.style.top='0px';
+	let num = Math.floor( Math.random() * 2 )
 }
-function movingPinky(){				
-	if (map[pinky.y][pinky.x -1] !== 1){ // go left
+function movingPinky(){	
+	let num = Math.floor( Math.random() * 2 )
+	if (map[pinky.y-1][pinky.x] !== 1){ // go up
+		map[pinky.y][pinky.x] = 0
+		pinky.y --
+		map[pinky.y][pinky.x] = 4;
+		pinkyMoving.style.top=parseInt(pinkyMoving.style.top)-45 +'px';
+	} else if (num === 1 && map[pinky.y][pinky.x -1] !== 1){ // go left
 		map[pinky.y][pinky.x] = 0
 		pinky.x--
 		map[pinky.y][pinky.x] = 4;
 		pinkyMoving.style.left=parseInt(pinkyMoving.style.left)-45 +'px';
-	} 
-	if (map[pinky.y-1][pinky.x] !== 1 && map[pinky.y-2][pinky.x] !== 1){ // go up
-		map[pinky.y][pinky.x] = 0
-		pinky.y -= 1
-		map[pinky.y][pinky.x] = 4;
-		pinkyMoving.style.top=parseInt(pinkyMoving.style.top)-45 +'px';
-	}  
-	if (map[pinky.y][pinky.x+1] !== 1){ // go right
+	} else if (map[pinky.y][pinky.x+1] !== 1){ // go right
 		map[pinky.y][pinky.x] = 0
 		pinky.x++
 		map[pinky.y][pinky.x] = 4;
 		pinkyMoving.style.left=parseInt(pinkyMoving.style.left)+45 +'px';
-	}  
-	if (map[pinky.y+1][pinky.x] !== 1){ // go down
+	} else if (map[pinky.y+1][pinky.x] !== 1){ // go down
 		map[pinky.y][pinky.x] = 0
 		pinky.y++
 		map[pinky.y][pinky.x] = 4;
@@ -370,7 +376,7 @@ function movingPinky(){
 
 
 
-// setInterval(movingPinky, 500);
+setInterval(movingPinky, 500);
 initPink()
 
 
@@ -378,40 +384,39 @@ initPink()
 
 function initRed(){
 	reddyMoving=document.querySelector('.g2');				
-	reddyMoving.style.position='absolute';
-	reddyMoving.style.left='632px';
-	reddyMoving.style.top='630px';
+	reddyMoving.style.position='relative';
+	reddyMoving.style.left='5px';
+	reddyMoving.style.top='0px';
+	let num = Math.floor( Math.random() * 2 )
 }
 function movingReddy(){				
-	if (map[reddy.y][reddy.x -1] !== 1){ // go left
+	let num = Math.floor( Math.random() * 2 )
+	if (map[reddy.y-1][reddy.x] !== 1){ // go up
+		map[reddy.y][reddy.x] = 0
+		reddy.y --
+		map[reddy.y][reddy.x] = 4;
+		reddyMoving.style.top=parseInt(reddyMoving.style.top)-45 +'px';
+	} else if (num === 0 && map[reddy.y][reddy.x -1] !== 1){ // go left
 		map[reddy.y][reddy.x] = 0
 		reddy.x--
 		map[reddy.y][reddy.x] = 4;
 		reddyMoving.style.left=parseInt(reddyMoving.style.left)-45 +'px';
-	} 
-	if (map[reddy.y-1][reddy.x] !== 1 && map[reddy.y-2][reddy.x] !== 1){ // go up
-		map[reddy.y][reddy.x] = 0
-		reddy.y -= 1
-		map[reddy.y][reddy.x] = 4;
-		reddyMoving.style.top=parseInt(reddyMoving.style.top)-45 +'px';
-	}  
-	if (map[reddy.y][reddy.x+1] !== 1){ // go right
-		map[reddy.y][reddy.x] = 0
-		reddy.x++
-		map[reddy.y][reddy.x] = 4;
-		reddyMoving.style.left=parseInt(reddyMoving.style.left)+45 +'px';
-	}  
-	if (map[reddy.y+1][reddy.x] !== 1){ // go down
+	} else if (map[reddy.y+1][reddy.x] !== 1){ // go down
 		map[reddy.y][reddy.x] = 0
 		reddy.y++
 		map[reddy.y][reddy.x] = 4;
 		reddyMoving.style.top=parseInt(reddyMoving.style.top)+45 +'px';
-	}
+	} else if (map[reddy.y][reddy.x+1] !== 1){ // go right
+		map[reddy.y][reddy.x] = 0
+		reddy.x++
+		map[reddy.y][reddy.x] = 4;
+		reddyMoving.style.left=parseInt(reddyMoving.style.left)+45 +'px';
+	} 
 }
 
 
 
-// setInterval(movingReddy, 500);
+setInterval(movingReddy, 500);
 initRed()
 
 
@@ -420,41 +425,40 @@ initRed()
 //Orange Ghost
 
 function initOrange(){
-	orangeMoving=document.querySelector('.g3');				
-	orangeMoving.style.position='absolute';
-	orangeMoving.style.left='585px';
-	orangeMoving.style.top='670px';
+	orangeyMoving=document.querySelector('.g3');				
+	orangeyMoving.style.position='relative';
+	orangeyMoving.style.left='5px';
+	orangeyMoving.style.top='0px';
+	let num = Math.floor( Math.random() * 3 )
 }
 function movingOrangey(){				
-	if (map[orangey.y][orangey.x -1] !== 1){ // go left
+	let num = Math.floor( Math.random() * 3 )
+	if (map[orangey.y-1][orangey.x] !== 1){ // go up
+		map[orangey.y][orangey.x] = 0
+		orangey.y --
+		map[orangey.y][orangey.x] = 4;
+		orangeyMoving.style.top=parseInt(orangeyMoving.style.top)-45 +'px';
+	} else if (map[orangey.y][orangey.x -1] !== 1){ // go left
 		map[orangey.y][orangey.x] = 0
 		orangey.x--
 		map[orangey.y][orangey.x] = 4;
-		orangeMoving.style.left=parseInt(orangeMoving.style.left)-45 +'px';
-	} 
-	if (map[orangey.y-1][orangey.x] !== 1 && map[orangey.y-2][orangey.x] !== 1){ // go up
-		map[orangey.y][orangey.x] = 0
-		orangey.y -= 1
-		map[orangey.y][orangey.x] = 4;
-		orangeMoving.style.top=parseInt(orangeMoving.style.top)-45 +'px';
-	}  
-	if (map[orangey.y][orangey.x+1] !== 1){ // go right
-		map[orangey.y][orangey.x] = 0
-		orangey.x++
-		map[orangey.y][orangey.x] = 4;
-		orangeMoving.style.left=parseInt(orangeMoving.style.left)+45 +'px';
-	}  
-	if (map[orangey.y+1][orangey.x] !== 1){ // go down
+		orangeyMoving.style.left=parseInt(orangeyMoving.style.left)-45 +'px';
+	} else if (num === 1 && map[orangey.y+1][orangey.x] !== 1){ // go down
 		map[orangey.y][orangey.x] = 0
 		orangey.y++
 		map[orangey.y][orangey.x] = 4;
-		orangeMoving.style.top=parseInt(orangeMoving.style.top)+45 +'px';
-	}
+		orangeyMoving.style.top=parseInt(orangeyMoving.style.top)+45 +'px';
+	} else if (map[orangey.y][orangey.x+1] !== 1){ // go right
+		map[orangey.y][orangey.x] = 0
+		orangey.x++
+		map[orangey.y][orangey.x] = 4;
+		orangeyMoving.style.left=parseInt(orangeyMoving.style.left)+45 +'px';
+	} 
 }
 
 
 
-// setInterval(movingOrangey, 500);
+setInterval(movingOrangey, 500);
 initOrange()
 
 
@@ -463,42 +467,42 @@ initOrange()
 //Turquoise Ghost
 
 function initTurq(){
-	turqMoving=document.querySelector('.g4');				
-	turqMoving.style.position='absolute';
-	turqMoving.style.left='632px';
-	turqMoving.style.top='670px';
+	turquoiseyMoving=document.querySelector('.g4');				
+	turquoiseyMoving.style.position='relative';
+	turquoiseyMoving.style.left='5px';
+	turquoiseyMoving.style.top='0px';
+	let num = Math.floor( Math.random() * 2 )
 }
 function movingTurquoise(){				
-	if (map[turqy.y][turqy.x -1] !== 1){ // go left
-		map[turqy.y][turqy.x] = 0
-		turqy.x--
-		map[turqy.y][turqy.x] = 4;
-		turqMoving.style.left=parseInt(turqMoving.style.left)-45 +'px';
+	let num = Math.floor( Math.random() * 2 )
+	if (map[turquoisey.y-1][turquoisey.x] !== 1){ // go up
+		map[turquoisey.y][turquoisey.x] = 0
+		turquoisey.y --
+		map[turquoisey.y][turquoisey.x] = 4;
+		turquoiseyMoving.style.top=parseInt(turquoiseyMoving.style.top)-45 +'px';
+	} else if (map[turquoisey.y][turquoisey.x -1] !== 1){ // go left
+		map[turquoisey.y][turquoisey.x] = 0
+		turquoisey.x--
+		map[turquoisey.y][turquoisey.x] = 4;
+		turquoiseyMoving.style.left=parseInt(turquoiseyMoving.style.left)-45 +'px';
+	} else if (map[turquoisey.y+1][turquoisey.x] !== 1){ // go down
+		map[turquoisey.y][turquoisey.x] = 0
+		turquoisey.y++
+		map[turquoisey.y][turquoisey.x] = 4;
+		turquoiseyMoving.style.top=parseInt(turquoiseyMoving.style.top)+45 +'px';
+	} else if (map[turquoisey.y][turquoisey.x+1] !== 1){ // go right
+		map[turquoisey.y][turquoisey.x] = 0
+		turquoisey.x++
+		map[turquoisey.y][turquoisey.x] = 4;
+		turquoiseyMoving.style.left=parseInt(turquoiseyMoving.style.left)+45 +'px';
 	} 
-	if (map[turqy.y-1][turqy.x] !== 1 && map[turqy.y-2][turqy.x] !== 1){ // go up
-		map[turqy.y][turqy.x] = 0
-		turqy.y -= 1
-		map[turqy.y][turqy.x] = 4;
-		turqMoving.style.top=parseInt(turqMoving.style.top)-45 +'px';
-	}  
-	if (map[turqy.y][turqy.x+1] !== 1){ // go right
-		map[turqy.y][turqy.x] = 0
-		turqy.x++
-		map[turqy.y][turqy.x] = 4;
-		turqMoving.style.left=parseInt(turqMoving.style.left)+45 +'px';
-	}  
-	if (map[turqy.y+1][turqy.x] !== 1){ // go down
-		map[turqy.y][turqy.x] = 0
-		turqy.y++
-		map[turqy.y][turqy.x] = 4;
-		turqMoving.style.top=parseInt(turqMoving.style.top)+45 +'px';
-	}
 }
 
 
 
-// setInterval(movingTurquoise, 500);
+setInterval(movingTurquoise, 500);
 initTurq()
+
 
 
 
@@ -527,6 +531,13 @@ function userWon () {
 		document.getElementById('score-board').setAttribute('id', 'score-board-appear');
 		updateScoreBoard();
 	} 
+}
+
+function userLost () {
+		alert("Sorry, you lost.")
+		document.getElementById('board').setAttribute('id', 'board-end-game');
+		document.getElementById('score-board').setAttribute('id', 'score-board-appear');
+		updateScoreBoard();
 }
 
 function updateScoreBoard() {

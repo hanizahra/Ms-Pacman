@@ -18,10 +18,13 @@
 	background-color: black;
 	margin-top: 150px;
 	font-family: helvetica, sans-serif;
+	/*height: 900px;
+	width: 1300px;*/
 }
 
 #board {
 	z-index: 10;
+	position: relative;
 }
 
 #game {
@@ -89,8 +92,8 @@
 }
 
 .ghosts {
-	height: 45px;
-	width: 45px;
+	height: 50px;
+	width: 50px;
 }
 .g1 {
 	background: url("images/ghost-pink.png");
@@ -98,7 +101,7 @@
 }
 
 .g2 {
-	background: url("images/ghost-red.png");
+	background: url("images/ghost-red1.png");
 	background-size: contain;
 }
 
