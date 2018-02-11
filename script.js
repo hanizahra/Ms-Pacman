@@ -39,6 +39,8 @@ let map =[
 ]
 
 
+//Creates board
+
 function drawMap() {
 	document.getElementById('board').innerHTML = "";
 	for (let y = 0; y < map.length; y++) {
@@ -242,7 +244,8 @@ function moveMsPacMan(){
 				
 			}
 		break;						
-	}
+	} 
+	checkCollision(msPacManMoving, pinkyMoving)
 }
 
 
@@ -304,6 +307,7 @@ function movingPinky(){
 		map[pinky.y][pinky.x] = 4;
 		pinkyMoving.style.top=parseInt(pinkyMoving.style.top)+45 +'px';
 	}
+
 }
 
 
@@ -437,17 +441,29 @@ initTurq()
 
 //Collision Detection
 
-function collision () {
+//collision detection for cars running over the frog ,  pass pacman as rect1 and //ghosts rect2  
+function checkCollision(rect1, rect2) {
+       rect1.getBoundingClientRect();
+       rect2.getBoundingClientRect();
+//compare x POS of frog if less than x POS of car plus width of car and x POS of frog plus the width
+//is greater than x POS of car and y POS of frog less than height of car and height of frog plus
+//y POS of frog is greater than y POS of car
+      if (rect1.x < rect2.x + rect2.width && rect1.x + rect1.width < rect2.x &&
+          rect1.y < rect2.y + rect2.height && rect1.height + rect1.y > rect2.y) {
+            console.log('collided');
+            return true  // collision detected!
+          } console.log('did not collide.')
+  }
 
-}
-
-
+ 
 
 
 
 
 document.addEventListener('keydown', setOrientation);
 // setInterval(moveMsPacMan, 500)
+
+//Scoring/Scoreboard
 
 let score = 0;
 const circlePoints = document.querySelector('.white-circle');
@@ -460,8 +476,10 @@ function incrementScore () {
 	userWon ()
 }
 
+//userWon will be hardcoded to all dots being eaten once collision detection is working
+
 function userWon () {
-	if (score >= 1040) {  //1040
+	if (score >= 200) {  //1040
 		// window.location.href = "index3.html";
 		document.getElementById('board').setAttribute('id', 'board-end-game');
 		document.getElementById('score-board').setAttribute('id', 'score-board-appear');
@@ -552,9 +570,9 @@ function updateScoreBoard() {
 
 
 
-
 // document.getElementById('board').map[0]
 window.onload=init;
 // window.onload=init2;
 
+checkCollision(msPacManMoving, pinkyMoving)
 
