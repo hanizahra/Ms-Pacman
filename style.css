@@ -45,6 +45,7 @@
 	left: 1230px;
 	height: 50px;
 	width: 50px;
+
 	/*background-color: yellow;
 	border-radius: 50%;*/
 }
@@ -178,7 +179,7 @@ td {
 
 div{
 	display: inline-block;
-	margin: -2.5px;
+    margin: -2.5px;
 	line-height: 15px;
 }
 

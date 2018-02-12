@@ -55,6 +55,7 @@ function drawMap() {
 				let holder = document.createElement('div');
 				holder.classList.add('ms-pac-man')
 				holder.classList.add('ms-pac-man-right');
+				holder.setAttribute('id', 'mp');
 				document.getElementById('board').appendChild(holder);
 				document.getElementById('board').innerHTML += `<div class = 'empty-square' id='${x}x${y}'></div>`;
 				// document.getElementById('board').innerHTML += "<div id = 'ms-pac-man'></div>";
@@ -86,6 +87,8 @@ function drawMap() {
 				let holder = document.createElement('div');
 				holder.classList.add('ghosts')
 				holder.classList.add('g1');
+				holder.setAttribute('id', 'pinky');
+
 				// holder.setAttribute('style', `background: url("images/ghost-pink.png")`)
 				console.log(holder);
 				// document.getElementById('board').innerHTML += holder;
@@ -149,12 +152,17 @@ function setOrientation (evnt){
 
 }
 
+var msPacManMoving;
+var pinkyMoving;
+
 
 function init(){
+	console.log('init being loaded on window.load')
 	msPacManMoving=document.querySelector('.ms-pac-man');				
 	msPacManMoving.style.position='absolute';
 	msPacManMoving.style.left='45px';
 	msPacManMoving.style.top='630px';
+	
 }
 function moveMsPacMan(){				
 	// let key_code=evnt.which||evnt.keyCode;
@@ -245,12 +253,12 @@ function moveMsPacMan(){
 			}
 		break;						
 	} 
-	checkCollision(msPacManMoving, pinkyMoving)
+	checkCollision(msPacManMoving, pinkyMoving);
 }
 
 
 
-setInterval(moveMsPacMan, 500);
+var msPacManIntId = setInterval(moveMsPacMan, 500);
 
 
 
@@ -312,7 +320,7 @@ function movingPinky(){
 
 
 
-setInterval(movingPinky, 500);
+// setInterval(movingPinky, 500);
 initPink()
 
 
@@ -441,19 +449,27 @@ initTurq()
 
 //Collision Detection
 
-//collision detection for cars running over the frog ,  pass pacman as rect1 and //ghosts rect2  
 function checkCollision(rect1, rect2) {
-       rect1.getBoundingClientRect();
-       rect2.getBoundingClientRect();
-//compare x POS of frog if less than x POS of car plus width of car and x POS of frog plus the width
-//is greater than x POS of car and y POS of frog less than height of car and height of frog plus
-//y POS of frog is greater than y POS of car
-      if (rect1.x < rect2.x + rect2.width && rect1.x + rect1.width < rect2.x &&
-          rect1.y < rect2.y + rect2.height && rect1.height + rect1.y > rect2.y) {
-            console.log('collided');
-            return true  // collision detected!
-          } console.log('did not collide.')
-  }
+    let collisionHappened = false;
+
+       rect1 = rect1.getBoundingClientRect();
+       rect2 = rect2.getBoundingClientRect();
+     if (rect1.x < rect2.x + rect2.width &&
+     	  rect1.x + rect1.width > rect2.x &&
+         rect1.y < rect2.y + rect2.height && 
+         rect1.height + rect1.y > rect2.y)
+     // if(rect1.top == rect2.top && rect1.left == rect2.left)
+      	{
+            console.log('MsPacMan', rect1);
+            console.log('Pinky', rect2);
+            userLost();
+            window.clearInterval(msPacManIntId);
+            collisionHappened = true;
+        	
+         }
+
+    return collisionHappened;
+};
 
  
 
@@ -479,7 +495,7 @@ function incrementScore () {
 //userWon will be hardcoded to all dots being eaten once collision detection is working
 
 function userWon () {
-	if (score >= 200) {  //1040
+	if (score >= 1100) {  //1040
 		// window.location.href = "index3.html";
 		document.getElementById('board').setAttribute('id', 'board-end-game');
 		document.getElementById('score-board').setAttribute('id', 'score-board-appear');
@@ -574,5 +590,5 @@ function updateScoreBoard() {
 window.onload=init;
 // window.onload=init2;
 
-checkCollision(msPacManMoving, pinkyMoving)
+
 
