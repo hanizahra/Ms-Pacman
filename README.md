@@ -6,7 +6,8 @@
 <p>Ms. Pac-Man is a yellow circle character that eats little white circles in a maze. The goal is to eat all the white circles without being attacked (touched) by any one of the four multi-colored ghosts. Ms. Pac-Man can lose a max of three lives before the game resets. In addition to the white circles, there are larger white circles Ms. Pac-Man can eat that for a brief amount of time allow her to swallow the ghosts( now a blue color), which sends them back to the center box of the maze. After all white dots have been eaten, the user can progress to the next level. Each succesive level will see an increase in ghost speed and aggression. There will also be a point system that accounts for each white dot eaten. The score will be carried over into the successive levels for the ultimate goal of the user attaining a top score, which will be listed on the scoreboard.</p><br><br>
 
 <h2>Wireframe</h2> <br><br>
-(see in images folder)<br><br>
+![Wireframes](/images/ms-pac-man-wireframes.jpg "Screenshot")
+<br><br>
 
 <h2>Initial thoughts on game structure</h2> <br><br>
 <p>I want the user to see a basic landing page with character images, brief instruction and game start option.</p>
@@ -42,3 +43,9 @@ https://codepen.io/hellokatili/pen/xwKRmo
 <p>The ghost characters were added last but with time a constraint, the logic to their random movements is fairly restricted.</p>
 
 <p>The last big obstacle that could not be achieved was the collision detection between the Ms. PacMan character and the ghosts. Due to that, web page/device responsiveness wasn't attempted. However, a score count was created and a logic drawn to include high scores to a scoreboard as the final page. The user is able to input their name.</p>
+
+<h2>Preview</h2> <br><br>
+![Screenshot of Landing Page](/images/ms-pacman1.png "Screenshot")![Screenshot of Game Play](/images/ms-pacman2.png "Screenshot")
+![Screenshot of High Score](/images/ms-pacman3.png "Screenshot")
+
+
